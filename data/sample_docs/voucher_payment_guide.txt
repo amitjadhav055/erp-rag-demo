@@ -1,0 +1,42 @@
+VOUCHER CREATION AND PAYMENT PROCESSING GUIDE
+Document ID: FIN-GUIDE-003
+Department: Accounts Payable
+Last Updated: March 2026
+
+OVERVIEW
+A voucher is the internal financial document created in the ERP system to authorise payment to a vendor. Vouchers are created automatically by the Voucher Match Automation (VMA) system after successful three-way matching, or manually by Accounts Payable staff for exceptions.
+
+AUTOMATED VOUCHER CREATION
+When an invoice passes three-way matching, the VMA system automatically:
+1. Creates a voucher in the ERP with all matched invoice data
+2. Assigns a unique voucher number
+3. Sets the payment due date based on vendor payment terms
+4. Posts the transaction to the relevant GL accounts
+5. Sends a confirmation notification to the vendor
+
+Manual intervention is only required when the automated matching fails. Failure reasons are logged in the exception queue with specific error codes for resolution.
+
+VOUCHER FIELDS
+Each voucher in the system contains: voucher number, vendor ID, vendor name, invoice number, invoice date, voucher creation date, gross amount, tax amount, net payable amount, GL account distribution, cost centre, payment due date, payment method (NEFT/RTGS/Cheque), and bank account details.
+
+PAYMENT RUNS
+Payments are processed in daily batch runs at 6:00 PM IST. The payment run selects all approved vouchers where the payment due date falls within the next 3 business days. Urgent payments can be processed outside the batch run with Finance Director approval using the manual payment screen.
+
+PAYMENT METHODS
+NEFT: For amounts below ₹2,00,000. Processing time 2-4 hours.
+RTGS: For amounts ₹2,00,000 and above. Processing time 30 minutes during banking hours.
+Cheque: Only for vendors without bank details in system. Requires manual dispatch.
+
+VOUCHER ERROR CODES
+VCHR-ERR-001: GL account not active. The posting account has been deactivated. Contact Finance to reactivate or reassign.
+VCHR-ERR-002: Cost centre mismatch. The cost centre on the invoice does not match the PO. Requires department head approval to override.
+VCHR-ERR-003: Duplicate voucher. A voucher for this invoice number already exists. Check for duplicate invoice submission from vendor.
+VCHR-ERR-004: Tax calculation error. GST amount on invoice does not match system calculation. Review vendor's GST registration details.
+VCHR-ERR-005: Vendor bank details missing. Cannot process electronic payment. Contact vendor to submit bank details.
+VCHR-ERR-006: Payment on hold. A hold has been placed on this vendor. All vouchers for this vendor are blocked until hold is released by Finance.
+
+RECONCILIATION
+Monthly reconciliation compares: vouchers created vs invoices received, payments made vs vouchers approved, and vendor statements vs ERP records. Discrepancies must be resolved within 5 business days of month end. The reconciliation report is reviewed by the Finance Controller and signed off before the books are closed for the month.
+
+AUDIT AND COMPLIANCE
+All voucher creation and modification events are logged with the user ID and timestamp. Vouchers cannot be deleted — only reversed. A reversal creates an equal and opposite posting in the GL. Voucher data is retained in the system for a minimum of 7 years. External auditors are granted read-only access to the voucher module during audit periods.

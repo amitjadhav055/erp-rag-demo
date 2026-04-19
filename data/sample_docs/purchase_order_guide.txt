@@ -1,0 +1,42 @@
+PURCHASE ORDER MANAGEMENT GUIDE
+Document ID: PROC-GUIDE-002
+Department: Procurement
+Last Updated: February 2026
+
+INTRODUCTION
+This guide covers the end-to-end purchase order (PO) lifecycle in the ERP system, from creation through to closure. All procurement activities must be conducted through the ERP to maintain audit compliance and spend visibility.
+
+CREATING A PURCHASE ORDER
+POs are created in the procurement module by authorised requestors. Required fields: vendor name, vendor ID, delivery address, requested delivery date, line items (description, quantity, unit price, GL account code), and budget approval reference.
+
+PO value thresholds and approval levels:
+- Up to ₹50,000: Department Manager approval
+- ₹50,001 to ₹5,00,000: Procurement Manager approval
+- ₹5,00,001 to ₹25,00,000: Finance Director approval
+- Above ₹25,00,000: CEO approval required
+
+PO STATUS CODES
+DRAFT: PO has been created but not submitted for approval.
+PENDING_APPROVAL: PO submitted and awaiting approver action.
+APPROVED: PO approved and transmitted to vendor.
+PARTIALLY_RECEIVED: Goods receipt posted for some but not all line items.
+FULLY_RECEIVED: All items received and goods receipt completed.
+INVOICED: Invoice received and matched against PO.
+CLOSED: PO fully processed, payment completed, and closed in system.
+CANCELLED: PO cancelled before goods receipt. Requires Finance approval to cancel after receipt.
+
+GOODS RECEIPT PROCESS
+When goods arrive, the warehouse team must post a goods receipt (GR) in the ERP within 24 hours of delivery. The GR records: PO number, actual quantities received, delivery date, condition of goods, and warehouse location. Any discrepancy between ordered and received quantities must be noted in the GR comments field. Partial deliveries are allowed — the PO remains open until fully received.
+
+VENDOR MANAGEMENT
+All vendors must be registered and approved before a PO can be raised. Vendor registration requires: business registration documents, GST number, bank account details, and at least two trade references. Vendor performance is tracked quarterly based on: on-time delivery rate, invoice accuracy rate, and quality of goods received.
+
+COMMON ERP ERRORS IN PROCUREMENT MODULE
+PO-ERR-101: Budget exceeded. The PO value exceeds the available budget for the specified GL account. Action: Request budget amendment from Finance before proceeding.
+PO-ERR-102: Vendor on hold. The selected vendor has been placed on payment hold. Action: Contact Accounts Payable to resolve the hold before raising a PO.
+PO-ERR-103: Invalid GL account. The specified GL account code does not exist or is inactive. Action: Contact Finance to verify the correct GL code.
+PO-ERR-104: Delivery date in the past. Action: Update the delivery date to a future date.
+PO-ERR-105: Duplicate PO detected. A PO with the same vendor and line items was recently created. Action: Verify this is not a duplicate before proceeding.
+
+REPORTING AND AUDIT
+All PO activity is logged with timestamps and user IDs. Monthly spend reports by vendor, department, and GL account are available in the analytics module. Audit logs are retained for 7 years in accordance with financial record keeping requirements.

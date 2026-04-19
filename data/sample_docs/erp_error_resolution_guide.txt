@@ -1,0 +1,64 @@
+ERP ERROR RESOLUTION GUIDE
+Document ID: SUPPORT-GUIDE-004
+Department: IT Support / Finance Operations
+Last Updated: April 2026
+
+PURPOSE
+This guide provides resolution steps for the most common errors encountered in the ERP system across the procurement, invoice processing, and finance modules. Use this guide before raising a support ticket.
+
+INVOICE MODULE ERRORS
+
+ERR-001: PO Number Not Found
+Symptom: Invoice submitted with a PO number that does not exist in the system.
+Cause: PO may have been cancelled, not yet approved, or the PO number was entered incorrectly on the invoice.
+Resolution: 
+1. Search for the PO in the procurement module using vendor name and approximate date.
+2. If PO exists but is in DRAFT or PENDING status, ask procurement to approve it first.
+3. If PO was cancelled, a new PO must be raised before the invoice can be processed.
+4. If PO number was entered incorrectly by vendor, contact vendor to resubmit with correct PO number.
+
+ERR-002: Duplicate Invoice
+Symptom: System rejects the invoice as a duplicate.
+Cause: An invoice with the same number from the same vendor has already been processed.
+Resolution:
+1. Search the system for the existing invoice using vendor ID and invoice number.
+2. Check the payment status of the existing invoice.
+3. If already paid, inform the vendor. Do not process again.
+4. If the original invoice was rejected or reversed, contact Finance to clear the record before resubmitting.
+
+ERR-003: Amount Exceeds PO Value
+Symptom: Invoice total is higher than the remaining PO value.
+Cause: Vendor overbilled, PO was partially consumed by earlier invoices, or price increase not reflected in PO.
+Resolution:
+1. Compare invoice line item prices against PO prices to find the discrepancy.
+2. If a price increase was agreed, raise a PO amendment through Procurement.
+3. If vendor overbilled, raise a dispute and request a corrected invoice.
+4. For amounts up to 5% over PO value, Finance Manager can approve an override.
+
+ERR-004: OCR Extraction Failed
+Symptom: Invoice data was not correctly extracted — fields are blank or contain garbled text.
+Cause: Poor scan quality, unusual invoice layout, or handwritten content.
+Resolution:
+1. Check the original invoice attachment for legibility.
+2. If the invoice is a low-quality scan, request a higher resolution copy from the vendor.
+3. For invoices that cannot be automatically processed, use the manual data entry screen in the Finance Operations module.
+4. Contact the IT support team if a specific vendor's invoice format consistently fails extraction — a custom parser can be configured.
+
+PROCUREMENT MODULE ERRORS
+
+PO-ERR-101: Budget Exceeded
+Resolution: Go to the budget management screen and check the current balance for the GL account. If additional budget is available in another cost centre, request a budget transfer. If no budget is available, escalate to Finance for budget amendment approval.
+
+PO-ERR-102: Vendor on Hold
+Resolution: Check the vendor record for the hold reason. Common reasons are overdue payment disputes, compliance document expiry, or quality issues. Contact Accounts Payable with the vendor ID to get details on the hold and expected resolution timeline.
+
+SYSTEM PERFORMANCE ISSUES
+
+SLOW_QUERY: Reports taking more than 30 seconds to load.
+Resolution: This typically occurs during month-end when report volumes are high. Schedule large reports during off-peak hours (before 8 AM or after 7 PM IST). If the issue persists outside peak periods, raise a ticket with the system team.
+
+SESSION_TIMEOUT: User is logged out unexpectedly.
+Resolution: The system has a 30-minute inactivity timeout for security reasons. Save work frequently. If timeouts occur more frequently than expected, clear browser cache and cookies.
+
+SUPPORT ESCALATION
+If the above steps do not resolve your issue, raise a support ticket at helpdesk@company.com with: error code, screenshot of the error, steps already taken, and the affected PO or invoice number. Response SLA: P1 (system down) 1 hour, P2 (critical process blocked) 4 hours, P3 (workaround available) 24 hours.
